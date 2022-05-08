@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% block content %}
+<style>
+  .black{color: black;}
+  a {text-decoration: none;}
+  .card-subtitle{font-size: smaller;}
+  .card-text{color: black;}
+</style>
+
+<header>
+  <div class="bg-danger py-0.5 text-center"> 
+    **This is not completly reliable  
+  </div>
+  
+  <nav id="navbar_top" class="navbar navbar-expand-lg py-4 navbar-dark bg-custom mb-5">
+   <div class="container">
+      <a class="navbar-brand" href="/">Fake News Analyser</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="main_nav">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item"><a class="nav-link" href="/"><i class="fa fa-align-left"></i> Analysis with Text </a></li>
+    </ul>
+    </div> <!-- navbar-collapse.// -->
+   </div> <!-- container-fluid.// -->
+  </nav>
+</header>    
+
+<div class="container-fluid black"> 
+  <div class="mx-auto" style="width: 95%; min-height: 100%;">
+
+    {% for val in tweets %}
+      <div class="card mb-3">
+          <div class="card-body mb-3">
+              <a href="https://twitter.com/{{ val[0] }}"><h5 class="card-title">{{ val[0] }}</h5></a>
+              <a href="/">
+              <h6 class="card-subtitle mb-2 text-muted">{{ val[1] }}</h6>
+              <p class="card-text mb-3">{{ val[2] }}</p>
+              <a href="#" class="card-link">{{ val[3] }}</a>
+              <a href="#" class="card-link">{{ val[4] }}</a>
+            </a>
+          </div>
+      </div>
+    {% endfor %}
+
+  </div>
+</div>
+<!--container.//-->
+
+{% endblock %}
