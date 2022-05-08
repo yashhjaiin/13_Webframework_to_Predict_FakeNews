@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>News Analyser</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888; 
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+    }
+    html{ 
+      position: relative;
+      min-height: 100%;
+    }
+    body{ margin-bottom: 175px; }
+    .bodybg{ 
+      background-image: url("/static/new_bg.jpg");
+      background-position: center;
+      background-size: cover;
+      color: white;
+    }
+    .bg-custom{ background-color: rgb(24, 52, 95); }
+    .footer {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      /* height: 140px; */
+    }
+  </style>
+</head>
+<body class="bodybg">
+
+  {% block content %}
+  <!--Header-->
+  <header>
+    <div class="bg-danger py-0.5 text-center"> 
+      **This is not completly reliable  
+    </div>
+    
+    <nav id="navbar_top" class="navbar navbar-expand-lg py-4 navbar-dark bg-custom mb-5">
+     <div class="container">
+        <a class="navbar-brand" href="/">Fake News Analyser</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="main_nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/tweet"> <i class="fab fa-twitter fa-1x"></i> Analysis with Tweets </a></li>
+      </ul>
+      </div> <!-- navbar-collapse.// -->
+     </div> <!-- container-fluid.// -->
+    </nav>
+  </header>
+
+  <div class="container-fluid">
+    
+    <div class="mx-auto" style="width: 95%; min-height: 100%;">
+
+      <!--Form-->
+      <form id="form_pred" method="post" action="/results">
+        <div class="mb-3">
+          <label for="title" class="form-label pb-2" style="font-weight: 400;">News Headline</label>
+          <input type="text" class="form-control" id="title" name="title" placeholder="The heading ... (optional)">
+        </div>
+        <div class="mb-3">
+          <label for="text" class="form-label pb-2">News Text</label>
+          <textarea class="form-control mb-2" id="text" name="text" placeholder="The text content ..." rows="4" required></textarea>
+        </div>
+
+        <!--Button-->
+        <div class="d-grid gap-2">
+          <button class="btn btn-success py-2 mb-5" type="submit">Predict</button>
+        </div>
+        <!--Button.//-->
+      </form>
+      <!--Form.//-->
+
+    </div>
+  </div>
+  {% endblock %}
+
+</body>
+<!--Footer-->
+<footer class="footer bg-custom text-white d-flex-column text-center mt-2">
+  <hr class="mt-0">
+  <!--Social buttons-->
+  <div class="text-center">
+    <h6>Connect with me @</h6>
+    <ul class="list-unstyled list-inline mt-3">
+      <li class="list-inline-item">
+        <a href="https://www.facebook.com/yashjain9908" target="_blank" class="sbtn btn-large mx-1" title="Facebook">
+          <i class="fab fa-facebook fa-2x"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a href="https://www.linkedin.com/in/yashh-jain/" target="_blank" class="sbtn btn-large mx-1" title="Linkedin">
+          <i class="fab fa-linkedin fa-2x"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a href="https://www.instagram.com/__yashjain._/?hl=en" target="_blank" class="sbtn btn-large mx-1" title="Instagram">
+          <i class="fab fa-instagram fa-2x"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a href="https://github.com/yashhjaiin" target="_blank" class="sbtn btn-large mx-1" title="Github">
+          <i class="fab fa-github fa-2x"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!--Social buttons.//-->
+  <hr class="mb-0"  >
+  <!--Copyright-->
+  <div class="text-secondary py-1 text-center">
+    Created with ❤️ by Yash, Jigar & Jaagrut ©
+    <script> document.write(new Date().getFullYear()) </script>
+  </div>
+  <!--Copyright.//-->
+</footer>
+  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</html>
