@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+{% block content %}
+<style>
+  #hide{display: none;}
+</style>
+
+<header>
+  <div class="bg-danger py-0.5 text-center"> 
+    **This is not completly reliable  
+  </div>
+  
+  <nav id="navbar_top" class="navbar navbar-expand-lg py-4 navbar-dark bg-custom mb-5">
+   <div class="container">
+      <a class="navbar-brand" href="/">Fake News Analyser</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="main_nav">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item"><a class="nav-link" href="/"> <i style="font-size:15px" class="fa">&#xf0e2;</i> Back </a></li>
+    </ul>
+    </div> <!-- navbar-collapse.// -->
+   </div> <!-- container-fluid.// -->
+  </nav>
+</header>    
+
+<div class="container-fluid"> 
+  <div class="mx-auto" style="width: 95%; min-height: 100%;">
+
+    <div>
+      <div class="text-center" style="width: 100%;">
+
+        <form action="/retrain" method="post">
+          <input type="text" name="title" id="hide" value="{{title}}"/>
+          <h4> {{title}} </h4> <hr/>
+          <textarea class="form-control" name="text" rows="12" value> {{text}} </textarea> <br/>
+          <div class="row text-center mb-5">
+            <input type="text" name="news_result" id="hide" value="{{news_result}}"/>
+            <div class="col-md-6 py-2"> <h1> {{news_result}} </h1> <h5>{{sentiment_res}}</h5> </div>
+            <div class="col-md-3 py-3 d-grid"> 
+              <button type="submit" class="btn btn-success" name="poll" value="correct"> <b><i> Correctly Predicted </b></i> </button> 
+            </div>
+            <div class="col-md-3 py-3 d-grid"> 
+              <button type="submit" class="btn btn-danger" name="poll" value="incorrect"> <b><i> Incorrectly Predicted </b></i> </button> 
+            </div>
+          </div>
+        </form>
+      
+      </div>
+
+    </div> 
+      <!--container.//-->
+
+      <script>
+        function cvalue(){ document.getElementById("cvalue").style.display = "block"; }
+      </script>
+  </div>
+</div>
+
+{% endblock %}
