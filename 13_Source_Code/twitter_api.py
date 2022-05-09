@@ -23,17 +23,10 @@ api = tweepy.API(auth)
 
 def getData():
 
-    keywords = '@iamsrk'
-    tweets = tweepy.Cursor(api.search_tweets, q=keywords, count=10, tweet_mode='extended').items(10)
-
-    data = []
-    # col = ['Time Created', 'User', 'Tweet', 'Sentiments', 'Reliability']
-    # tweets_collection = api.home_timeline()
-
     stream_tweet = Listener(api_key, api_key_secret, access_token, access_token_secret)
 
     # stream by kewords
-    keywords = ['modi is great person']
+    keywords = ['news', 'covid', 'india', 'politics', 'mumbai', 'maharastra', 'congress', 'bjp']
     stream_tweet.filter(track=keywords)
 
     print(stream_tweet.tweets)
